@@ -5,6 +5,7 @@ import goalsRouter from './routes/goals.routes'
 import usersRouter from './routes/users.routes'
 import notFound from './middleware/notFound'
 import errorHandler from './middleware/errorHandler'
+import './db/db'
 
 const app = express()
 

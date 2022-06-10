@@ -1,5 +1,13 @@
 import { Status } from './enums'
 
+export interface IUser {
+  id: string
+  userName: string
+  name: string
+  passwordHash: string
+  goals: string[]
+}
+
 export interface Goal {
   id: string
   name: string
@@ -20,3 +28,5 @@ export interface Goal {
 export type NonStatusGoal = Omit<Goal, 'status'>
 
 export type NewGoalEntry = Goal
+
+export type PublicUser = Omit<IUser, 'passwordHash'>

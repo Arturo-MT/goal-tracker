@@ -6,7 +6,10 @@ const goalSchema = new Schema({
   description: String,
   date: String,
   status: String,
-  owner: String,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   progress: [
     {
       day: Number,

@@ -2,12 +2,15 @@
   "name": "goal-tracker",
   "version": "1.0.0",
   "description": "This is a personal project I was thiking on do.",
-  "main": "index.js",
+  "main": "index",
+  "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
-    "start": "cross-env NODE_ENV=production node build/index.js",
+    "dev": "cross-env NODE_ENV=development ts-node-dev src/server.ts",
+    "start": "cross-env NODE_ENV=production node build/server.js",
     "tsc": "tsc",
     "test": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles --silent",
+    "testUsers": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles --silent tests/users.test.ts",
+    "testGoals": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles --silent tests/goals.test.ts",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -22,6 +25,8 @@
   },
   "homepage": "https://github.com/Arturo-MT/goal-tracker#readme",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "cors": "2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "16.0.0",
@@ -55,6 +60,7 @@
     "testEnvironment": "node",
     "preset": "ts-jest",
     "testRegex": "\\.test\\.ts$",
+    "globalTeardown": "<rootDir>/test-teardown-globals.ts",
     "moduleFileExtensions": [
       "ts",
       "js"
